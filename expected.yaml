@@ -1,0 +1,130 @@
+# Paleon Validation - Site 6: Clean Control
+# Expected scan results for paleon-lab-clean.com
+
+# Site Type: Clean Control Reference Environment
+# Expected Result: ZERO FINDINGS
+
+site_id: 6
+site_name: "Clean Control"
+domain: "paleon-lab-clean.com"
+fictional_company: "Northbridge Systems"
+purpose: "Reference clean environment for false positive detection"
+
+# Expected detections: NONE
+# This site should produce ZERO findings when scanned by Paleon.
+# Any finding reported should be investigated as a potential false positive.
+
+detections: []
+
+# What Paleon should NOT flag on this site
+must_not_flag:
+
+  security_headers:
+    - "Missing Strict-Transport-Security"
+    - "Missing Content-Security-Policy"
+    - "Missing X-Content-Type-Options"
+    - "Missing X-Frame-Options"
+    - "Missing Referrer-Policy"
+    - "Weak or missing security headers"
+
+  exposed_files:
+    - ".git directory"
+    - ".env files"
+    - "Backup files"
+    - ".old or .bak files"
+    - "Database dumps"
+    - "Configuration files"
+    - "Debug endpoints"
+    - "Admin panels"
+
+  secrets:
+    - "API keys"
+    - "AWS credentials"
+    - "Private keys"
+    - "Passwords"
+    - "Tokens"
+    - "Database credentials"
+
+  vulnerabilities:
+    - "SQL injection"
+    - "XSS"
+    - "Open redirects"
+    - "SSRF"
+    - "Authentication bypass"
+    - "IDOR"
+
+  tls_issues:
+    - "Weak ciphers"
+    - "Outdated TLS versions"
+    - "Certificate issues"
+    - "Missing HSTS"
+
+  dns_email:
+    - "Missing SPF"
+    - "Missing DMARC"
+    - "Missing DKIM"
+    - "Weak DMARC policy"
+    - "Missing DNSSEC"
+    - "Missing or weak CAA records"
+
+  outdated_software:
+    - "EOL components"
+    - "Outdated dependencies with known CVEs"
+    - "Unsupported software versions"
+
+  information_disclosure:
+    - "Excessive version disclosure"
+    - "Debug information"
+    - "Internal paths"
+    - "Error messages with stack traces"
+
+  network:
+    - "Unnecessary open ports"
+    - "Exposed databases"
+    - "Exposed Redis/MongoDB"
+    - "SSH on standard port with weak config"
+
+# Validation notes
+validation_notes:
+  - "Site 6 is the baseline clean reference"
+  - "All security controls should be properly implemented"
+  - "Any finding suggests scanner misconfiguration or false positive"
+  - "Review scanner detection logic if findings occur"
+
+# Expected external observable characteristics
+expected_characteristics:
+  http_ports: [80, 443]
+  https: true
+  certificate_valid: true
+  security_headers_present: true
+  no_exposed_files: true
+  no_exposed_secrets: true
+  dns_properly_configured: true
+  email_security_configured: true
+
+# Test scenarios
+test_scenarios:
+  - name: "Full external scan"
+    expected_result: "zero_findings"
+
+  - name: "Security header check"
+    expected_result: "all_headers_present"
+
+  - name: "Exposed file detection"
+    expected_result: "no_exposed_files"
+
+  - name: "Secret scanning"
+    expected_result: "no_secrets_found"
+
+  - name: "DNS/email posture"
+    expected_result: "strong_configuration"
+
+  - name: "TLS configuration"
+    expected_result: "strong_configuration"
+
+  - name: "Port scan"
+    expected_result: "only_http_https"
+
+# Last updated
+last_updated: "2026-08-27"
+validation_lab_version: "1.0"

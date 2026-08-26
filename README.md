@@ -1,36 +1,230 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Northbridge Systems - Clean Control (Site 6)
 
-## Getting Started
+## Project Overview
 
-First, run the development server:
+This is **Site 6** of the Paleon cybersecurity scanner validation laboratory. Site 6 is the **clean control** reference environment used to identify false positives in the Paleon scanner.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+**Expected Paleon scan result: ZERO FINDINGS**
+
+If Paleon reports any findings when scanning this site, those findings should be investigated as potential false positives.
+
+## Fictional Company
+
+**Northbridge Systems** is a fictional UK B2B technology services company created for this validation lab. All company information, team members, client names, case studies, and contact details are entirely fictional.
+
+Domain: `paleon-lab-clean.com`
+
+## Purpose
+
+This website represents a properly configured, secure, modern web application with:
+
+- Strong HTTP security headers
+- Restrictive Content Security Policy (CSP)
+- No exposed secrets or credentials
+- No exposed sensitive files or paths
+- No intentional vulnerabilities
+- No outdated/EOL components
+- Clean DNS/email configuration (when deployed)
+- Minimal technology disclosure
+
+## Technology Stack
+
+- **Framework:** Next.js 16.3.3 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS 4
+- **Deployment:** Vercel-compatible
+- **Runtime:** Node.js
+
+## Security Configuration
+
+### HTTP Security Headers
+
+The following security headers are implemented in `next.config.ts`:
+
+1. **Strict-Transport-Security**: `max-age=31536000; includeSubDomains; preload`
+2. **Content-Security-Policy**: Restrictive policy allowing only same-origin resources
+3. **X-Content-Type-Options**: `nosniff`
+4. **X-Frame-Options**: `DENY`
+5. **Referrer-Policy**: `strict-origin-when-cross-origin`
+6. **Permissions-Policy**: Restrictive permissions for device APIs
+
+### CSP Details
+
+The Content Security Policy is configured to:
+- Allow resources only from same origin (`'self'`)
+- Permit inline scripts/styles (required by Next.js)
+- Block third-party resources
+- Prevent framing
+- Restrict form actions to same origin
+
+### Version Disclosure
+
+- `X-Powered-By` header is disabled
+- Framework identification is minimized where possible
+
+## Project Structure
+
+```
+clean-control/
+├── app/
+│   ├── page.tsx              # Homepage
+│   ├── layout.tsx            # Root layout with metadata
+│   ├── globals.css           # Global styles
+│   ├── about/page.tsx        # About page
+│   ├── services/page.tsx     # Services page
+│   ├── solutions/page.tsx    # Solutions page
+│   ├── resources/page.tsx    # Resources/articles page
+│   └── contact/page.tsx      # Contact page
+├── components/
+│   ├── Navbar.tsx            # Main navigation
+│   └── Footer.tsx            # Site footer
+├── public/
+│   └── (static assets)
+├── next.config.ts            # Next.js config with security headers
+├── package.json              # Dependencies
+├── tsconfig.json             # TypeScript config
+├── .gitignore                # Git ignore rules
+├── README.md                 # This file
+└── expected.yaml             # Paleon validation expectations
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Local Development
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Prerequisites
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Node.js 20 or later
+- npm or yarn
 
-## Learn More
+### Installation
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+# Install dependencies
+npm install
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Running Locally
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+# Development server (with hot reload)
+npm run dev
 
-## Deploy on Vercel
+# Open http://localhost:3000
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Building for Production
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+# Create production build
+npm run build
+
+# Run production build locally
+npm start
+```
+
+### Linting
+
+```bash
+npm run lint
+```
+
+## Deployment
+
+This application is designed for deployment on Vercel:
+
+1. Connect the repository to Vercel
+2. Configure the custom domain: `paleon-lab-clean.com`
+3. Deploy
+
+No environment variables or secrets are required for the application itself.
+
+### HTTPS/TLS
+
+- HTTPS and certificate provisioning are handled by Vercel
+- No custom certificate handling is implemented in the application
+- The application is configured to work properly with HTTPS
+
+### DNS Configuration (Post-Deployment)
+
+After deploying the application, the following DNS/email configuration is required at the domain registrar/DNS provider:
+
+- **SPF**: Strong SPF record
+- **DMARC**: Policy set to `p=reject`
+- **DKIM**: Properly configured
+- **DNSSEC**: Enabled
+- **CAA**: Restrictive CAA records
+
+These are configured at the DNS/email provider level, not in the application code.
+
+## What This Project Does NOT Include
+
+To maintain the clean-control objective, this project intentionally does not include:
+
+- Database or backend server
+- Authentication or login system
+- User accounts or sessions
+- API endpoints
+- Payment processing
+- External CMS
+- External analytics/tracking
+- Cookies (except essential Next.js functionality)
+- Third-party scripts or resources
+- Intentional vulnerabilities
+- Exposed secrets or credentials
+- Exposed development files (.git, .env, etc.)
+- Debug or admin endpoints
+- Outdated dependencies
+
+## Security Checklist
+
+- [x] HTTP security headers implemented
+- [x] CSP configured and functional
+- [x] X-Powered-By header removed
+- [x] No secrets in code
+- [x] .env files in .gitignore
+- [x] No exposed backup files
+- [x] No exposed .git directory
+- [x] No unnecessary cookies
+- [x] No third-party tracking
+- [x] No outdated dependencies
+- [x] All navigation links functional
+- [x] Mobile responsive
+- [x] Semantic HTML and accessibility
+- [ ] DNS/email configuration (post-deployment)
+- [ ] DNSSEC enabled (post-deployment)
+- [ ] TLS properly configured (handled by Vercel)
+
+## Validation
+
+The `expected.yaml` file defines the expected Paleon scan results:
+
+```yaml
+detections: []
+```
+
+Any findings reported by Paleon should be investigated as potential false positives.
+
+## Reset Instructions
+
+To reset the project to a clean state:
+
+```bash
+# Remove node_modules and reinstall
+rm -rf node_modules package-lock.json
+npm install
+
+# Rebuild the project
+npm run build
+```
+
+## License
+
+This is a controlled test environment for the Paleon validation laboratory. It is not intended for public use or distribution.
+
+## Contact
+
+This is a fictional website created for security scanner validation. All contact information is fictional and for testing purposes only.
+
+---
+
+**Important:** This website is part of a controlled cybersecurity validation laboratory. All domains, infrastructure, and content are owned and controlled by the Paleon validation lab.
