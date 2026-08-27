@@ -1,8 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f5f7fb;
+  --background-strong: #eef3f9;
+  --foreground: #111827;
+  --muted: #4b5563;
+  --muted-soft: #667085;
+  --card: rgba(255, 255, 255, 0.9);
+  --card-strong: #ffffff;
+  --border: rgba(15, 23, 42, 0.08);
+  --brand: #1f5eff;
+  --brand-dark: #0f172a;
+  --brand-soft: #e0ebff;
+  --brand-soft-strong: #dfeafe;
+  --accent: #0f766e;
+  --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.08);
+  --shadow-card: 0 12px 30px rgba(15, 23, 42, 0.06);
 }
 
 @theme inline {
@@ -12,15 +25,164 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
+  background:
+    radial-gradient(circle at top left, rgba(31, 94, 255, 0.08), transparent 20%),
+    linear-gradient(180deg, #f8fafc 0%, var(--background) 100%);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: rgba(31, 94, 255, 0.18);
+}
+
+a,
+button {
+  transition: all 180ms ease;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.site-shell {
+  position: relative;
+}
+
+.site-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(rgba(15, 23, 42, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.02) 1px, transparent 1px);
+  background-size: 38px 38px;
+  mask-image: radial-gradient(circle at center, black 50%, transparent 100%);
+  pointer-events: none;
+}
+
+.section-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0.9rem;
+  border: 1px solid rgba(31, 94, 255, 0.18);
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 9999px;
+  color: var(--brand);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.section-kicker::before {
+  content: "";
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, var(--brand), #60a5fa);
+  box-shadow: 0 0 0 4px rgba(31, 94, 255, 0.1);
+}
+
+.section-heading {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.section-subheading {
+  max-width: 42rem;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.site-card {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(8px);
+}
+
+.soft-panel {
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(240,244,252,0.8));
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  box-shadow: var(--shadow-soft);
+}
+
+.brand-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.9rem;
+  background: linear-gradient(135deg, #e0ebff, #cfe0ff);
+  border: 1px solid rgba(31, 94, 255, 0.18);
+  color: var(--brand);
+  font-weight: 800;
+  letter-spacing: -0.08em;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+}
+
+.grid-pattern {
+  background-image: linear-gradient(rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.feature-node {
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-node::after {
+  content: "";
+  position: absolute;
+  right: -1.5rem;
+  bottom: -1.5rem;
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.18), rgba(96, 165, 250, 0));
+}
+
+.hero-stat {
+  min-width: 0;
+}
+
+.hero-stat strong {
+  display: block;
+  color: #0f172a;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  letter-spacing: -0.05em;
+}
+
+.hero-stat span {
+  color: var(--muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 767px) {
+  .site-shell::before {
+    background-size: 26px 26px;
+  }
 }
