@@ -15,7 +15,7 @@ export default function About() {
             About Northbridge Systems
           </h1>
           <p className="text-xl text-gray-600">
-            We're a UK-based technology partner helping businesses make the most of their IT infrastructure.
+            We&apos;re a UK-based technology partner helping businesses make the most of their IT infrastructure.
           </p>
         </div>
       </section>
@@ -34,7 +34,7 @@ export default function About() {
               Based in Manchester, we serve businesses throughout the UK with a focus on building long-term partnerships. Our approach is straightforward: understand your business needs, recommend appropriate solutions, and deliver reliable support.
             </p>
             <p>
-              We're not here to sell you the latest trends. We're here to ensure your technology infrastructure supports your business goals, whether that means maintaining existing systems, migrating to the cloud, or planning for growth.
+              We&apos;re not here to sell you the latest trends. We&apos;re here to ensure your technology infrastructure supports your business goals, whether that means maintaining existing systems, migrating to the cloud, or planning for growth.
             </p>
           </div>
         </div>
@@ -95,7 +95,7 @@ export default function About() {
                 Recommend Honestly
               </h3>
               <p className="text-gray-600">
-                We'll tell you what you need, not what's most profitable for us. If your existing systems work, we'll help you optimize them. If you need to upgrade, we'll explain why.
+                We&apos;ll tell you what you need, not what&apos;s most profitable for us. If your existing systems work, we&apos;ll help you optimize them. If you need to upgrade, we&apos;ll explain why.
               </p>
             </div>
             <div className="border-l-4 border-blue-600 pl-6">
@@ -103,7 +103,7 @@ export default function About() {
                 Deliver Reliably
               </h3>
               <p className="text-gray-600">
-                We do what we say we'll do, when we say we'll do it. Clear communication, realistic timelines, and dependable execution.
+                We do what we say we&apos;ll do, when we say we&apos;ll do it. Clear communication, realistic timelines, and dependable execution.
               </p>
             </div>
             <div className="border-l-4 border-blue-600 pl-6">
@@ -111,7 +111,7 @@ export default function About() {
                 Support Continuously
               </h3>
               <p className="text-gray-600">
-                Technology doesn't stop needing attention once it's deployed. We provide ongoing support to keep your systems running smoothly.
+                Technology doesn&apos;t stop needing attention once it&apos;s deployed. We provide ongoing support to keep your systems running smoothly.
               </p>
             </div>
           </div>
@@ -125,7 +125,7 @@ export default function About() {
             Our team
           </h2>
           <p className="text-lg text-gray-600 mb-8">
-            Our team brings together experienced engineers, consultants, and support specialists who understand both technology and business. We've worked across industries including finance, retail, manufacturing, and professional services.
+            Our team brings together experienced engineers, consultants, and support specialists who understand both technology and business. We&apos;ve worked across industries including finance, retail, manufacturing, and professional services.
           </p>
           <p className="text-lg text-gray-600">
             What unites us is a commitment to practical problem-solving and a genuine interest in helping businesses succeed through better technology management.

@@ -221,7 +221,7 @@ export default function Solutions() {
             Ready to discuss your needs?
           </h2>
           <p className="text-lg text-gray-600 mb-8">
-            Let's explore how these solutions can help your business.
+            Let&apos;s explore how these solutions can help your business.
           </p>
           <a
             href="/contact"

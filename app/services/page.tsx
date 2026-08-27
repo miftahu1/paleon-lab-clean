@@ -120,7 +120,7 @@ export default function Services() {
                 <div className="grid md:grid-cols-2 gap-8">
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                      What's included
+                      What&apos;s included
                     </h3>
                     <ul className="space-y-2">
                       {service.features.map((feature, idx) => (
@@ -146,7 +146,7 @@ export default function Services() {
 
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                      Who it's for
+                      Who it&apos;s for
                     </h3>
                     <p className="text-gray-600">{service.useCase}</p>
                   </div>
@@ -164,7 +164,7 @@ export default function Services() {
             Need help with your technology?
           </h2>
           <p className="text-lg text-gray-600 mb-8">
-            Let's discuss which services are right for your business.
+            Let&apos;s discuss which services are right for your business.
           </p>
           <a
             href="/contact"

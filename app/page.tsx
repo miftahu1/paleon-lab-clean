@@ -79,83 +79,42 @@ export default function Home() {
     <div className="site-shell bg-transparent">
       <section className="relative overflow-hidden">
         <div className="absolute inset-x-0 top-0 h-72 bg-[radial-gradient(circle_at_top,_rgba(96,165,250,0.18),_transparent_55%)]" />
-        <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
-          <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
-            <div>
-              <h1 className="max-w-xl text-4xl font-black tracking-[-0.06em] text-slate-900 sm:text-5xl lg:text-6xl">
-                Technology that keeps your business moving
-              </h1>
-              <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600 sm:text-xl">
-                Northbridge Systems helps UK businesses with practical technology,
-                infrastructure and digital solutions that work.
-              </p>
+        <div className="relative mx-auto max-w-4xl px-4 py-16 text-center sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+          <h1 className="text-4xl font-black tracking-[-0.06em] text-slate-900 sm:text-5xl lg:text-6xl">
+            Technology that keeps your business moving
+          </h1>
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-600 sm:text-xl">
+            Northbridge Systems helps UK businesses with practical technology,
+            infrastructure and digital solutions that work.
+          </p>
 
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                <Link
-                  href="/services"
-                  className="inline-flex items-center justify-center rounded-full bg-blue-600 px-7 py-3.5 text-sm font-semibold text-white shadow-[0_10px_30px_rgba(31,94,255,0.26)] hover:bg-blue-700 hover:shadow-[0_12px_35px_rgba(31,94,255,0.32)]"
-                >
-                  Explore our services
-                </Link>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white/80 px-7 py-3.5 text-sm font-semibold text-blue-700 shadow-sm hover:border-blue-200 hover:bg-blue-50"
-                >
-                  Get in touch
-                </Link>
-              </div>
+          <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+            <Link
+              href="/services"
+              className="inline-flex items-center justify-center rounded-full bg-blue-600 px-7 py-3.5 text-sm font-semibold text-white shadow-[0_10px_30px_rgba(31,94,255,0.26)] hover:bg-blue-700 hover:shadow-[0_12px_35px_rgba(31,94,255,0.32)]"
+            >
+              Explore our services
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white/80 px-7 py-3.5 text-sm font-semibold text-blue-700 shadow-sm hover:border-blue-200 hover:bg-blue-50"
+            >
+              Get in touch
+            </Link>
+          </div>
 
-              <div className="mt-10 grid max-w-xl gap-4 sm:grid-cols-3">
-                <div className="hero-stat rounded-2xl border border-slate-200 bg-white/80 p-4 shadow-sm backdrop-blur-sm">
-                  <strong>UK</strong>
-                  <span>Based support</span>
-                </div>
-                <div className="hero-stat rounded-2xl border border-slate-200 bg-white/80 p-4 shadow-sm backdrop-blur-sm">
-                  <strong>24/7</strong>
-                  <span>Business continuity</span>
-                </div>
-                <div className="hero-stat rounded-2xl border border-slate-200 bg-white/80 p-4 shadow-sm backdrop-blur-sm">
-                  <strong>Clear</strong>
-                  <span>Practical advice</span>
-                </div>
-              </div>
+          <div className="mt-10 grid gap-4 sm:grid-cols-3">
+            <div className="hero-stat rounded-2xl border border-slate-200 bg-white/80 p-4 shadow-sm backdrop-blur-sm">
+              <strong>UK</strong>
+              <span>Based support</span>
             </div>
-
-            <div className="relative">
-              <div className="feature-node soft-panel grid-pattern relative overflow-hidden rounded-[2rem] p-6 sm:p-8">
-                <div className="absolute right-6 top-6 h-32 w-32 rounded-full bg-blue-100/80 blur-2xl" />
-                <div className="absolute -bottom-8 -left-6 h-32 w-32 rounded-full bg-sky-100/70 blur-2xl" />
-
-                <div className="relative rounded-2xl border border-slate-200 bg-white/90 p-5 shadow-lg">
-                  <div className="mb-5 flex items-center justify-between">
-                    <span className="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">
-                      Live operations
-                    </span>
-                    <span className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-medium text-emerald-700">
-                      <span className="h-2 w-2 rounded-full bg-emerald-500" />
-                      Stable
-                    </span>
-                  </div>
-
-                  <div className="space-y-4">
-                    {[
-                      { label: "Network health", value: "99.9%" },
-                      { label: "Cloud readiness", value: "Optimised" },
-                      { label: "Support response", value: "Prompt" },
-                    ].map((item) => (
-                      <div key={item.label} className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3">
-                        <div className="flex items-center justify-between gap-4">
-                          <span className="text-sm text-slate-500">{item.label}</span>
-                          <span className="text-sm font-semibold text-slate-900">{item.value}</span>
-                        </div>
-                        <div className="mt-3 h-2 rounded-full bg-slate-200">
-                          <div className="h-2 rounded-full bg-gradient-to-r from-blue-500 to-sky-400" style={{ width: item.label === "Network health" ? "99%" : item.label === "Cloud readiness" ? "82%" : "91%" }} />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
+            <div className="hero-stat rounded-2xl border border-slate-200 bg-white/80 p-4 shadow-sm backdrop-blur-sm">
+              <strong>24/7</strong>
+              <span>Business continuity</span>
+            </div>
+            <div className="hero-stat rounded-2xl border border-slate-200 bg-white/80 p-4 shadow-sm backdrop-blur-sm">
+              <strong>Clear</strong>
+              <span>Practical advice</span>
             </div>
           </div>
         </div>

@@ -15,7 +15,7 @@ export default function Contact() {
             Get in Touch
           </h1>
           <p className="text-xl text-gray-600">
-            Let's discuss how we can help with your technology needs.
+            Let&apos;s discuss how we can help with your technology needs.
           </p>
         </div>
       </section>
@@ -84,7 +84,7 @@ export default function Contact() {
 
               <div className="bg-gray-50 p-6 rounded-lg">
                 <p className="text-gray-600 mb-6">
-                  We work with businesses across the UK on a range of technology challenges. Whether you need ongoing IT support, help with a specific project, or strategic technology advice, we'd be happy to discuss your needs.
+                  We work with businesses across the UK on a range of technology challenges. Whether you need ongoing IT support, help with a specific project, or strategic technology advice, we&apos;d be happy to discuss your needs.
                 </p>
 
                 <div className="space-y-4">
@@ -100,7 +100,7 @@ export default function Contact() {
                       >
                         hello@paleon-lab-clean.com
                       </a>{" "}
-                      with a brief description of what you're looking for and we'll get back to you within one business day.
+                      with a brief description of what you&apos;re looking for and we&apos;ll get back to you within one business day.
                     </p>
                   </div>
 
@@ -118,7 +118,7 @@ export default function Contact() {
                       For new business enquiries
                     </h3>
                     <p className="text-gray-600 text-sm">
-                      We're always interested in speaking with businesses that could benefit from our services. Get in touch and we'll arrange an initial call to understand your needs.
+                      We&apos;re always interested in speaking with businesses that could benefit from our services. Get in touch and we&apos;ll arrange an initial call to understand your needs.
                     </p>
                   </div>
                 </div>
@@ -152,7 +152,7 @@ export default function Contact() {
                 Initial Contact
               </h3>
               <p className="text-gray-600 text-sm">
-                Get in touch via email or phone. We'll respond within one business day.
+                Get in touch via email or phone. We&apos;ll respond within one business day.
               </p>
             </div>
             <div className="text-center">
@@ -163,7 +163,7 @@ export default function Contact() {
                 Discovery Call
               </h3>
               <p className="text-gray-600 text-sm">
-                We'll arrange a call to understand your needs and determine if we're a good fit.
+                We&apos;ll arrange a call to understand your needs and determine if we&apos;re a good fit.
               </p>
             </div>
             <div className="text-center">
@@ -174,7 +174,7 @@ export default function Contact() {
                 Proposal
               </h3>
               <p className="text-gray-600 text-sm">
-                If appropriate, we'll provide a clear proposal outlining how we can help.
+                If appropriate, we&apos;ll provide a clear proposal outlining how we can help.
               </p>
             </div>
           </div>
