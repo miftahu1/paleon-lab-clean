@@ -1,99 +1,51 @@
-# Paleon Validation - Site 6: Clean Control
-# Expected scan results for paleon-lab-clean.com
-
-# Site Type: Clean Control Reference Environment
-# Expected Result: ZERO FINDINGS
-
-site_id: 6
-site_name: "Clean Control"
-domain: "paleon-lab-clean.com"
-fictional_company: "Northbridge Systems"
-purpose: "Reference clean environment for false positive detection"
-
-# Expected detections: NONE
-# This site should produce ZERO findings when scanned by Paleon.
-# Any finding reported should be investigated as a potential false positive.
+site: paleon-lab-clean.com
+sector: clean_control
+description: Clean control reference environment intended to produce zero Paleon findings and expose false positives in headers, files, TLS, DNS/email, software, information-disclosure, and network checks.
+reset: make reset
 
 detections: []
 
-# What Paleon should NOT flag on this site
 must_not_flag:
+  - category: security_headers
+    target: paleon-lab-clean.com
+    reason: Strong HSTS, CSP, X-Content-Type-Options, X-Frame-Options, Referrer-Policy, and Permissions-Policy are implemented.
 
-  security_headers:
-    - "Missing Strict-Transport-Security"
-    - "Missing Content-Security-Policy"
-    - "Missing X-Content-Type-Options"
-    - "Missing X-Frame-Options"
-    - "Missing Referrer-Policy"
-    - "Weak or missing security headers"
+  - category: exposed_files
+    target: paleon-lab-clean.com
+    reason: No .git, .env, backup, database-dump, configuration, debug, or admin files are intended to be publicly accessible.
 
-  exposed_files:
-    - ".git directory"
-    - ".env files"
-    - "Backup files"
-    - ".old or .bak files"
-    - "Database dumps"
-    - "Configuration files"
-    - "Debug endpoints"
-    - "Admin panels"
+  - category: secrets
+    target: paleon-lab-clean.com
+    reason: No API keys, AWS credentials, private keys, passwords, tokens, or database credentials are included.
 
-  secrets:
-    - "API keys"
-    - "AWS credentials"
-    - "Private keys"
-    - "Passwords"
-    - "Tokens"
-    - "Database credentials"
+  - category: application_vulnerabilities
+    target: paleon-lab-clean.com
+    reason: The static clean-control site contains no SQL injection, XSS, open redirect, SSRF, authentication-bypass, or IDOR functionality.
 
-  vulnerabilities:
-    - "SQL injection"
-    - "XSS"
-    - "Open redirects"
-    - "SSRF"
-    - "Authentication bypass"
-    - "IDOR"
+  - category: tls_issues
+    target: paleon-lab-clean.com
+    reason: TLS is handled by Vercel with a valid certificate and modern configuration; HSTS is part of the expected control set.
 
-  tls_issues:
-    - "Weak ciphers"
-    - "Outdated TLS versions"
-    - "Certificate issues"
-    - "Missing HSTS"
+  - category: dns_email
+    target: paleon-lab-clean.com
+    reason: The deployment documentation requires strong SPF, DMARC p=reject, DKIM, DNSSEC, and restrictive CAA.
 
-  dns_email:
-    - "Missing SPF"
-    - "Missing DMARC"
-    - "Missing DKIM"
-    - "Weak DMARC policy"
-    - "Missing DNSSEC"
-    - "Missing or weak CAA records"
+  - category: outdated_software
+    target: paleon-lab-clean.com
+    reason: The source documents current Next.js/React dependencies and explicitly excludes outdated/EOL components.
 
-  outdated_software:
-    - "EOL components"
-    - "Outdated dependencies with known CVEs"
-    - "Unsupported software versions"
+  - category: information_disclosure
+    target: paleon-lab-clean.com
+    reason: X-Powered-By is disabled and no debug, internal-path, or stack-trace disclosures are intended.
 
-  information_disclosure:
-    - "Excessive version disclosure"
-    - "Debug information"
-    - "Internal paths"
-    - "Error messages with stack traces"
+  - category: network_exposure
+    target: paleon-lab-clean.com
+    reason: The documented clean-control posture exposes only HTTP/HTTPS on ports 80 and 443.
 
-  network:
-    - "Unnecessary open ports"
-    - "Exposed databases"
-    - "Exposed Redis/MongoDB"
-    - "SSH on standard port with weak config"
-
-# Validation notes
-validation_notes:
-  - "Site 6 is the baseline clean reference"
-  - "All security controls should be properly implemented"
-  - "Any finding suggests scanner misconfiguration or false positive"
-  - "Review scanner detection logic if findings occur"
-
-# Expected external observable characteristics
 expected_characteristics:
-  http_ports: [80, 443]
+  http_ports:
+    - 80
+    - 443
   https: true
   certificate_valid: true
   security_headers_present: true
@@ -102,29 +54,18 @@ expected_characteristics:
   dns_properly_configured: true
   email_security_configured: true
 
-# Test scenarios
-test_scenarios:
-  - name: "Full external scan"
-    expected_result: "zero_findings"
+validation:
+  full_external_scan: zero_findings
+  security_headers: all_expected_headers_present
+  exposed_file_detection: no_exposed_files
+  secret_scanning: no_secrets_found
+  dns_email_posture: strong_configuration
+  tls_configuration: strong_configuration
+  port_scan: only_http_https
 
-  - name: "Security header check"
-    expected_result: "all_headers_present"
-
-  - name: "Exposed file detection"
-    expected_result: "no_exposed_files"
-
-  - name: "Secret scanning"
-    expected_result: "no_secrets_found"
-
-  - name: "DNS/email posture"
-    expected_result: "strong_configuration"
-
-  - name: "TLS configuration"
-    expected_result: "strong_configuration"
-
-  - name: "Port scan"
-    expected_result: "only_http_https"
-
-# Last updated
-last_updated: "2026-08-27"
-validation_lab_version: "1.0"
+application:
+  framework: Next.js 16.3.3
+  runtime: Node.js
+  deployment: Vercel-compatible
+  static_prerendered: true
+  x_powered_by: disabled
