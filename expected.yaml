@@ -28,7 +28,7 @@ must_not_flag:
 
   - category: dns_email
     target: paleon-lab-clean.com
-    reason: The deployment documentation requires strong SPF, DMARC p=reject, DKIM, DNSSEC, and restrictive CAA.
+    reason: The domain has the expected SPF, DMARC, DKIM, DNSSEC, and CAA posture. Cloudflare is authoritative for DNS, so Cloudflare-managed certificate-authority CAA records may also appear in authoritative DNS responses.
 
   - category: outdated_software
     target: paleon-lab-clean.com
@@ -53,6 +53,14 @@ expected_characteristics:
   no_exposed_secrets: true
   dns_properly_configured: true
   email_security_configured: true
+  dnssec_enabled: true
+  caa:
+    expected_present: true
+    allowed_issue:
+      - letsencrypt.org
+    allowed_issuewild:
+      - ";"
+    cloudflare_managed_caa_permitted: true
 
 validation:
   full_external_scan: zero_findings
